@@ -7,9 +7,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Apartments.Data;
 using Apartments.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace Apartments.Pages.Apartmentss
 {
+    [Authorize(Roles = "Admin")]
+
     public class DeleteModel : PageModel
     {
         private readonly Apartments.Data.ApartmentsContext _context;

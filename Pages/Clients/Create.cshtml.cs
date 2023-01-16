@@ -21,6 +21,7 @@ namespace Apartments.Pages.Clients
 
         public IActionResult OnGet()
         {
+            ViewData["ClientID"] = new SelectList(_context.Set<Models.Client>(), "ID", "FullName");
             return Page();
         }
 

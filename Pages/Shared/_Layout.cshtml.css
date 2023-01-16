@@ -8,26 +8,36 @@ a.navbar-brand {
 }
 
 a {
-  color: #0077cc;
+    background-color: #006EA6;
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #006EA6;
+    border-color: #005480;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #006EA6;
+    border-color: #005480;
 }
 
+.nav-item:hover {
+    background-color: slateblue;
+}
+
+.nav-link {
+    color: #026292;
+    font-weight: 300;
+}
+
+
 .border-top {
-  border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #005480;
 }
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #005480;
 }
 
 .box-shadow {

@@ -16,13 +16,14 @@
             @Html.DisplayNameFor(model => model.Rental.Client)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Rental.Client.ID)
+            @Html.DisplayFor(model => model.Rental.Client.FullName)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Rental.Apartment)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Rental.Apartment.Title)
+            @Html.DisplayFor(model => model.Rental.Apartment.Owner.FullName)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Rental.ReturnDate)

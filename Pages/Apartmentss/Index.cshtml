@@ -5,35 +5,62 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Apartments available for rent</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
 </p>
+
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find apartment:
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+            <input type="submit" value="Search" class="btn btn-primary" /> |
+            <a asp-page="./Index">Back</a>
+        </p>
+    </div>
+</form>
+
+
 <table class="table">
     <thead>
         <tr>
             <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.TitleSort">
                 @Html.DisplayNameFor(model => model.Apartment[0].Title)
+                </a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Apartment[0].Owner.FullName)
+                @Html.DisplayNameFor(model => model.Apartment[0].Owner)
             </th>
             <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.PriceSort">
                 @Html.DisplayNameFor(model => model.Apartment[0].Price)
+                </a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Apartment[0].Date)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Apartment[0].Agent.AgentName)
+                @Html.DisplayNameFor(model => model.Apartment[0].Agent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apartment[0].ApartmentCategories)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Apartment) {
-        <tr>
+        @foreach (var item in Model.ApartmentD.Apartments)
+        {
+            string selectedRow = "";
+            if (item.ID == Model.ApartmentID)
+            {
+                selectedRow = "table-success";
+            }
+        <tr class="@selectedRow">
+        
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
@@ -49,6 +76,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Agent.AgentName)
             </td>
+                <td>
+                    @{
+                        foreach (var category in item.ApartmentCategories)
+                        {
+                            @category.Category.ID @: @category.Category.CategoryName <br />
+                        }
+                    }
+                </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |

@@ -20,6 +20,9 @@
                 @Html.DisplayNameFor(model => model.Rental[0].Apartment)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Rental[0].Apartment.Owner)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Rental[0].ReturnDate)
             </th>
             <th></th>
@@ -29,11 +32,14 @@
 @foreach (var item in Model.Rental) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Client.ID)
+                @Html.DisplayFor(modelItem => item.Client.FullName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Apartment.Title)
             </td>
+                <th>
+                    @Html.DisplayNameFor(modelItem => item.Apartment.Owner.FullName)
+                </th>
             <td>
                 @Html.DisplayFor(modelItem => item.ReturnDate)
             </td>

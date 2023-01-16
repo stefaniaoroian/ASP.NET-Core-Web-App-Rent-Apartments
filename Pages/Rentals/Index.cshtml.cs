@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Apartments.Data;
 using Apartments.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace Apartments.Pages.Rentals
 {
+    [Authorize(Roles = "Admin")]
     public class IndexModel : PageModel
     {
         private readonly Apartments.Data.ApartmentsContext _context;

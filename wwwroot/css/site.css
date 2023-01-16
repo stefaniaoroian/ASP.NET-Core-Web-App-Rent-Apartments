@@ -14,5 +14,37 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: #B4E6FF;
+}
+
+.display-4 {
+    color: #026292;
+    position: center;
+    font-style: italic;
+    font-weight: 900;
+}
+
+.text-center {
+    background-image: url('../imagini/apartamente.jpg');
+    background-color: #B4E6FF;
+    height: 1000px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.descriere {
+    color: #026292;
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+}
+
+.table {
+    color: white;
+    position: center;
+    font-size: 16px;
+    font-style: italic;
+    background-color: #045674;
 }

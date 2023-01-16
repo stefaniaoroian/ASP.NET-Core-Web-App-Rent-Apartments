@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Apartments.Data;
 using Apartments.Models;
 
+
+
 namespace Apartments.Pages.Rentals
 {
     public class CreateModel : PageModel
@@ -21,8 +23,10 @@ namespace Apartments.Pages.Rentals
 
         public IActionResult OnGet()
         {
-        ViewData["ApartmentID"] = new SelectList(_context.Apartment, "ID", "Title");
-        ViewData["ClientID"] = new SelectList(_context.Client, "ID", "ID");
+            
+            ViewData["ClientID"] = new SelectList(_context.Set<Models.Client>(), "ID", "FullName");
+            ViewData["ApartmentID"] = new SelectList(_context.Apartment, "ID", "Title");
+  
             return Page();
         }
 

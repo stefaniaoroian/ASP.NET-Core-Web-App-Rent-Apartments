@@ -29,7 +29,7 @@ namespace Apartments.Pages.Rentals
                 return NotFound();
             }
 
-            var rental = await _context.Rental.FirstOrDefaultAsync(m => m.ID == id);
+            var rental = await _context.Rental.Include(b => b.Client).Include(b => b.Apartment).FirstOrDefaultAsync(m => m.ID == id);
 
             if (rental == null)
             {
